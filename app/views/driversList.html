@@ -1,13 +1,19 @@
+<input type="text" ng-model="nameFilter" placeholder="Search..."/>
 <table>
   <thead>
     <tr><th colspan="4">Drivers Championship Standings</th></tr>
   </thead>
   <tbody>
-    <tr ng-repeat="driver in driversList">
+    <tr ng-repeat="driver in driversList | filter: searchFilter2">
       <td>{{$index + 1}}</td>
       <td>
-        <img src="img/flags/{{driver.Driver.nationality}}.png" />
-        {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+        <!-- <img src="img/flags/{{driver.Driver.nationality}}.png" /> -->
+        <img src="images/india.png" style='height:20px;width:20px;margin-right:10px;'/>
+
+         <a href="#/drivers/{{driver.Driver.driverId}}">
+          {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+        </a>
+
       </td>
       <td>{{driver.Constructors[0].name}}</td>
       <td>{{driver.points}}</td>

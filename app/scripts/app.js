@@ -6,6 +6,7 @@ angular
     'ngResource',
     'ngSanitize',
     'ngRoute',
+    'angularTestAppApp.services'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -16,6 +17,10 @@ angular
       .when('/drivers', {
         templateUrl: 'views/driversList.html',
         controller: 'DriversController'
+      })
+      .when('/drivers/:id', {
+        templateUrl: 'views/driver.html',
+        controller: 'DriverController'
       })
       .otherwise({
         redirectTo: '/'
